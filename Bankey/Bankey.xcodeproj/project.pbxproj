@@ -29,11 +29,6 @@
 			path = Bankey;
 			sourceTree = "<group>";
 		};
-		8FA330A92DA7D11E00F9554D /* Login */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Login;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +46,6 @@
 			isa = PBXGroup;
 			children = (
 				8FA330912DA7C54800F9554D /* Bankey */,
-				8FA330A92DA7D11E00F9554D /* Login */,
 				8FA330902DA7C54800F9554D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -81,7 +75,6 @@
 			);
 			fileSystemSynchronizedGroups = (
 				8FA330912DA7C54800F9554D /* Bankey */,
-				8FA330A92DA7D11E00F9554D /* Login */,
 			);
 			name = Bankey;
 			packageProductDependencies = (
