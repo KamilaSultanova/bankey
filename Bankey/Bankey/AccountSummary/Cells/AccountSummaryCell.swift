@@ -77,7 +77,7 @@ extension AccountSummaryCell {
         
         balanceAmountLabel.translatesAutoresizingMaskIntoConstraints = false
         balanceAmountLabel.textAlignment = .right
-        balanceAmountLabel.attributedText = makeFormattedBalance(dollars: "XXX,XXX", cents: "XX")
+        balanceAmountLabel.attributedText = makeFormattedBalance(dollars: "$XXX,XXX", cents: "XX")
         
         imageview.translatesAutoresizingMaskIntoConstraints = false
         imageview.image = UIImage(systemName: "chevron.right")?.withTintColor(appColor)
