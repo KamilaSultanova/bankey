@@ -22,6 +22,7 @@ class AccountSummaryViewController: UIViewController {
     var accountCellViewModels: [AccountSummaryCell.ViewModel] = []
     
     var tableView = UITableView()
+    let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,7 @@ extension AccountSummaryViewController {
         setupNavigationBar()
         setupTableView()
         setupTableHeaderView()
+        setupRefreshControl()
         fetchData()
     }
     
@@ -67,6 +69,12 @@ extension AccountSummaryViewController {
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+    
+    private func setupRefreshControl() {
+        refreshControl.tintColor = appColor
+        refreshControl.addTarget(self, action: #selector(refreshContent), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+    }
 }
 
 extension AccountSummaryViewController: UITableViewDataSource {
@@ -96,6 +104,10 @@ extension AccountSummaryViewController: UITableViewDelegate {
 extension AccountSummaryViewController {
     @objc func logoutTapped(){
         NotificationCenter.default.post(name: .Logout, object: nil)
+    }
+    
+    @objc func refreshContent() {
+        fetchData()
     }
 }
 
@@ -131,6 +143,7 @@ extension AccountSummaryViewController {
         
         group.notify(queue: .main) {
             self.tableView.reloadData()
+            self.tableView.refreshControl?.endRefreshing()
         }
     }
     
